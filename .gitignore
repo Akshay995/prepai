@@ -1,0 +1,19 @@
+# Compiled class files
+*.class
+
+# Maven target folder
+target/
+
+# Infrastructure folder
+infra/
+.idea/
+
+# Environment example files
+.env.example
+.env.examples
+
+# API test files
+*.http
+*.rest
+api-test*
+api_test*
