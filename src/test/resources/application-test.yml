@@ -1,0 +1,72 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;MODE=PostgreSQL;NON_KEYWORDS=VALUE
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    database-platform: org.hibernate.dialect.H2Dialect
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: false
+  flyway:
+    enabled: false
+  cache:
+    type: none
+  mail:
+    host: localhost
+    port: 3025
+    username: test
+    password: test
+    protocol: smtp
+    properties:
+      mail:
+        smtp:
+          auth: false
+          starttls:
+            enable: false
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: test-google-client-id
+            client-secret: test-google-client-secret
+            scope: email,profile
+  data:
+    redis:
+      host: localhost
+      port: 6379
+
+server:
+  servlet:
+    context-path: /
+
+app:
+  jwt:
+    secret: cHJlcGFpVW5pdFRlc3RKd3RTZWNyZXRLZXlGb3JUZXN0aW5nUHVycG9zZXMx
+    expiration-ms: 900000
+    refresh-expiration-ms: 604800000
+  base-url: http://localhost:8080
+  frontend-url: http://localhost:3000
+
+anthropic:
+  api-key: test-anthropic-key
+  model: claude-3-5-sonnet-20241022
+  max-tokens: 1024
+  base-url: http://localhost:9999
+
+stripe:
+  secret-key: sk_test_fake_key_for_testing
+  webhook-secret: whsec_test_fake_webhook_secret
+  price:
+    pro-monthly: price_pro_monthly_test
+    pass-48h: price_pass_48h_test
+
+logging:
+  level:
+    com.prepai: WARN
+    org.springframework.security: WARN

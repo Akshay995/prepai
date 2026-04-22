@@ -162,6 +162,11 @@
       <artifactId>h2</artifactId>
       <scope>test</scope>
     </dependency>
+    <dependency>
+      <groupId>io.projectreactor</groupId>
+      <artifactId>reactor-test</artifactId>
+      <scope>test</scope>
+    </dependency>
   </dependencies>
 
   <build>
@@ -175,6 +180,34 @@
               <groupId>org.projectlombok</groupId>
               <artifactId>lombok</artifactId>
             </exclude>
+          </excludes>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.jacoco</groupId>
+        <artifactId>jacoco-maven-plugin</artifactId>
+        <version>0.8.12</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>prepare-agent</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>report</id>
+            <phase>test</phase>
+            <goals>
+              <goal>report</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <excludes>
+            <exclude>com/prepai/PrepAiApplication.class</exclude>
+            <exclude>com/prepai/config/**</exclude>
+            <exclude>com/prepai/model/**</exclude>
+            <exclude>com/prepai/repository/**</exclude>
+            <exclude>com/prepai/dto/**</exclude>
           </excludes>
         </configuration>
       </plugin>

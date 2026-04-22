@@ -101,7 +101,7 @@ app:
 
 # Anthropic
 anthropic:
-  api-key: ${ANTHROPIC_API_KEY}
+  api-key: ${ANTHROPIC_API_KEY:s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}
   model: ${ANTHROPIC_MODEL:claude-sonnet-4-20250514}
   max-tokens: ${ANTHROPIC_MAX_TOKENS:2048}
   base-url: https://api.anthropic.com
